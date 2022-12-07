@@ -68,6 +68,18 @@
       }
     </script>
     <script type="text/javascript" src="qtloader.js"></script>
+	<script>
+	  Module.onRuntimeInitialized = function () {
+	    // 第一次调用先获取需要的内存大小
+	    var size = Module._get_c_string(0, 0);
+	    var strPointer = Module._malloc(size);
+	    Module._get_c_string(strPointer, size);
+	    var strBuffer = new Uint8Array(Module.HEAPU8.buffer, strPointer, size - 1);
+	    var str = new TextDecoder().decode(strBuffer);
+	    console.log(str); // Hello World
+	    Module._free(strPointer);
+	  };
+	</script>
   </body>
 </html>
 <script type="module" src="./main.js"></script>
