@@ -19,10 +19,22 @@
          clipboard events. Hide the resulting focus frame and set the cursor back to
          the default cursor. */
       canvas { outline: 0px solid transparent; caret-color: transparent; cursor:default }
-    </style>
+	.first {
+	            width: 50%;
+	            float:left;
+	            height: 100px;
+	            border: 1px solid #3B6273;
+	        }
+	        .second {
+	            width: 50%;
+	            float:left;
+	            height: 100px;
+	            border: 1px solid #3B6273;
+	        }
+	</style>
   </head>
   <body onload="init()">
-	  <div style="float:left;width:50%"></div>
+	  <div class="first"> 
     <figure style="overflow:visible;" id="qtspinner">
       <center style="margin-top:1.5em; line-height:150%">
         <img src="qtlogo.svg" width="320" height="200" style="display:block"></img>
@@ -70,8 +82,9 @@
     </script>
     <script type="text/javascript" src="qtloader.js"></script>
 	
+	</div>
+	<div class="second"> 
 	
-	<div style="float:left;width:48%"></div>
 
 	<button onclick="xxprint"></button>
 	<script>
@@ -87,7 +100,7 @@
 	  };
 	</script>
 	
-	
+	</div>
   </body>
 </html>
 <script type="module" src="./main.js"></script>
