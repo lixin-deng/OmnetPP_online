@@ -23,14 +23,14 @@
 	            width: 50%;
 	            float:left;
 	            height: 100%;
-	            border: 1px solid #3B6273;
-	        }
+/* 	            border: 1px solid #3B6273;
+ */	        }
 	        .second {
 	            width: 50%;
 	            float:left;
 	            height: 100%;
-	            border: 1px solid #3B6273;
-	        }
+/* 	            border: 1px solid #3B6273;
+ */	        }
 	</style>
   </head>
   <body onload="init()">
@@ -85,10 +85,12 @@
 	</div>
 	<div class="second"> 
 	
+	<input type="button" value="click me" onclick="showString()">
 
-	<script>
-	  document.getElementById("button").onclick = Module.onRuntimeInitialized = function () {
-	    // 第一次调用先获取需要的内存大小
+	<script type="text/javascript">
+	  // Module.onRuntimeInitialized = function showString() {
+		function showString() {
+	  //   // 第一次调用先获取需要的内存大小
 	    var size = Module._get_c_string(0, 0);
 	    var strPointer = Module._malloc(size);
 	    Module._get_c_string(strPointer, size);
