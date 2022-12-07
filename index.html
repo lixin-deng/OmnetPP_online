@@ -22,13 +22,13 @@
 	.first {
 	            width: 50%;
 	            float:left;
-	            height: 100px;
+	            height: 100%;
 	            border: 1px solid #3B6273;
 	        }
 	        .second {
 	            width: 50%;
 	            float:left;
-	            height: 100px;
+	            height: 100%;
 	            border: 1px solid #3B6273;
 	        }
 	</style>
@@ -86,9 +86,8 @@
 	<div class="second"> 
 	
 
-	<button onclick="xxprint"></button>
 	<script>
-	  Module.onRuntimeInitialized = function xxprint () {
+	  document.getElementById("button").onclick = Module.onRuntimeInitialized = function () {
 	    // 第一次调用先获取需要的内存大小
 	    var size = Module._get_c_string(0, 0);
 	    var strPointer = Module._malloc(size);
