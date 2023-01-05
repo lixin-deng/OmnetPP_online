@@ -91,11 +91,7 @@
 	<script type="text/javascript">
 	  // Module.onRuntimeInitialized = function showString() {
 	
-	function clear() {
-	    document.getElementById("textshow").value ="";
-	    console.log("clear text area.");
-	}
-	
+
 	function showString() {
 	  //   // 第一次调用先获取需要的内存大小
 	    var size = Module._get_c_string(0, 0);
@@ -108,13 +104,10 @@
 	    Module._free(strPointer);
 	  }
 	  
-	
-
 	</script>
 	<input type="button" value="show text" onclick="showString()" />
-	<input type="button" value="clear" onclick="clear()" />
 	<form>
-	    show collected text：<textarea name="description" id="textshow" cols="30" rows="600" placeholder="show text"> </textarea>
+	    Collected text：<textarea name="description" id="textshow" cols="30" rows="600" placeholder="show text"> </textarea>
 	</form>
 	
 
