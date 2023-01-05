@@ -85,8 +85,7 @@
 	</div>
 	<div class="second"> 
 	
-	<input type="button" value="click me" onclick="showString()">
-
+	
 	<script type="text/javascript">
 	  // Module.onRuntimeInitialized = function showString() {
 		function showString() {
@@ -97,10 +96,22 @@
 	    var strBuffer = new Uint8Array(Module.HEAPU8.buffer, strPointer, size - 1);
 	    var str = new TextDecoder().decode(strBuffer);
 	    console.log(str); // Hello World
+		document.getElementById("textshow").value = str;
 	    Module._free(strPointer);
 	  };
+	  
+	  function clear() {
+	          document.getElementById("textshow").value ="";
+	          console.log("clear text area.");
+	    }
+
 	</script>
-	
+	<input type="button" value="showtext" onclick="showString()" />
+	<form>
+	    show collected text：<textarea name="description" id="textshow" cols="30" rows="600" placeholder="show text"> </textarea>
+	    <input type="button" value="clear" onclick="clear()" />
+	</form>
+
 	</div>
   </body>
 </html>
