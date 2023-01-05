@@ -90,7 +90,13 @@
 	<div class="second"> 
 	<script type="text/javascript">
 	  // Module.onRuntimeInitialized = function showString() {
-		function showString() {
+	
+	function clear() {
+	    document.getElementById("textshow").value ="";
+	    console.log("clear text area.");
+	}
+	
+	function showString() {
 	  //   // 第一次调用先获取需要的内存大小
 	    var size = Module._get_c_string(0, 0);
 	    var strPointer = Module._malloc(size);
@@ -100,12 +106,9 @@
 	    console.log(str); // Hello World
 		document.getElementById("textshow").value = str;
 	    Module._free(strPointer);
-	  };
+	  }
 	  
-	  function clear() {
-	        document.getElementById("textshow").value =" ";
-	        console.log("clear text area.");
-	    }
+	
 
 	</script>
 	<input type="button" value="show text" onclick="showString()" />
