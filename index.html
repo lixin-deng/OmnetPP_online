@@ -103,8 +103,10 @@
         method: 'POST',
         type: "json",
         body: JSON.stringify({"articles": articles}),
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json',"Access-Control-Allow-Origin": "*" }
       });
+
+      
 
       resposne.then(res => res.json())
       .then(json => 
