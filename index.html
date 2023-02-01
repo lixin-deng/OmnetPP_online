@@ -107,24 +107,25 @@
       });
 
       
-
+      var jsonStr;
       resposne.then(res => res.json())
       .then(json => 
             {
               console.log(json);
+              jsonStr = JSON.stringify(json);
 
             }).catch(err => {
               current_count=0;
               console.log(err);
               return "ERROR"});
       
-      var jsonStr = JSON.stringify(json);
-      document.getElementById("summary1").value = jsonStr[0];
-      document.getElementById("summary2").value = jsonStr[1];
-      document.getElementById("summary3").value = jsonStr[2];
-      document.getElementById("summary4").value = jsonStr[3];
-      document.getElementById("summary5").value = jsonStr[4];
-      document.getElementById("summary6").value = jsonStr[5];
+      
+      document.getElementById("summary1").value = jsonStr[0].get("summary");
+      document.getElementById("summary2").value = jsonStr[1].get("summary");
+      document.getElementById("summary3").value = jsonStr[2].get("summary");
+      document.getElementById("summary4").value = jsonStr[3].get("summary");
+      document.getElementById("summary5").value = jsonStr[4].get("summary");
+      document.getElementById("summary6").value = jsonStr[5].get("summary");
 
 	    Module._free(strPointer);
 	  }
