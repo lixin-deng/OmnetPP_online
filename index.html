@@ -96,7 +96,7 @@
 	    console.log(str); // Hello World
       articles = str.split('_NEW_SOURCE').splice(1, 46);
 		  //document.getElementById("textshow").value = articles;
-      console.log(articles);      
+      //console.log(articles);      
     const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
         method: 'POST',
         type: "json",
@@ -114,11 +114,18 @@
               len=eval(json).length;
               console.log("json's length %f",len);
               for(var i=0;i<len;i++){
-                console.log("json[i]");
-                console.log(json[i]);
+                // console.log("json[i]");
+                // console.log(json[i]);
                 jsonArray[i]=json[i].Summary;
-                console.log("json array");
-                console.log(jsonArray[i]);
+                // console.log("json array");
+                // console.log(jsonArray[i]);
+                document.getElementById("summary1").value = jsonArray[0];
+                document.getElementById("summary2").value = jsonArray[1];
+                document.getElementById("summary3").value = jsonArray[2];
+                document.getElementById("summary4").value = jsonArray[3];
+                document.getElementById("summary5").value = jsonArray[4];
+                document.getElementById("summary6").value = jsonArray[5];
+
               }
             }).catch(err => {
               current_count=0;
@@ -126,13 +133,7 @@
               return "ERROR"});
       
   
-      document.getElementById("summary1").value = jsonArray[0];
-      document.getElementById("summary2").value = jsonArray[1];
-      document.getElementById("summary3").value = jsonArray[2];
-      document.getElementById("summary4").value = jsonArray[3];
-      document.getElementById("summary5").value = jsonArray[4];
-      document.getElementById("summary6").value = jsonArray[5];
-
+      
 	    Module._free(strPointer);
 	  }
 
