@@ -94,7 +94,7 @@
 	    var strBuffer = new Uint8Array(Module.HEAPU8.buffer, strPointer, size - 1);
 	    var str = new TextDecoder().decode(strBuffer);
 	    console.log(str); // Hello World
-      articles = str.split('_NEW_SOURCE');
+      articles = str.split('_NEW_SOURCE').splice(0, 1);
 		  document.getElementById("textshow").value = articles;
       console.log(articles);
       console.log(articles.size);
