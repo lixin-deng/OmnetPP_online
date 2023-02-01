@@ -114,7 +114,7 @@
               len=eval(json).length;
               console.log("json's length %f",len);
               for(var i=0;i<len;i++){
-                jsonArray[i]=json[i].summary;
+                jsonArray[i]=json[i].get("Summary");
                 console.log("json array");
                 console.log(jsonArray[i]);
               }
