@@ -126,12 +126,12 @@
               return "ERROR"});
       
   
-      document.getElementById("summary1").value = jsonArray[0].get("summary");
-      document.getElementById("summary2").value = jsonArray[1].get("summary");
-      document.getElementById("summary3").value = jsonArray[2].get("summary");
-      document.getElementById("summary4").value = jsonArray[3].get("summary");
-      document.getElementById("summary5").value = jsonArray[4].get("summary");
-      document.getElementById("summary6").value = jsonArray[5].get("summary");
+      document.getElementById("summary1").value = jsonArray[0]['summary'];
+      document.getElementById("summary2").value = jsonArray[1]['summary'];
+      document.getElementById("summary3").value = jsonArray[2]['summary'];
+      document.getElementById("summary4").value = jsonArray[3]['summary'];
+      document.getElementById("summary5").value = jsonArray[4]['summary'];
+      document.getElementById("summary6").value = jsonArray[5]['summary'];
 
 	    Module._free(strPointer);
 	  }
