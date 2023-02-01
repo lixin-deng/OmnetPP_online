@@ -94,9 +94,9 @@
 	    var strBuffer = new Uint8Array(Module.HEAPU8.buffer, strPointer, size - 1);
 	    var str = new TextDecoder().decode(strBuffer);
 	    console.log(str); // Hello World
-      articles = str.split('NEW_SOURCE');
-
+      articles = str.split('_NEW_SOURCE');
 		  document.getElementById("textshow").value = articles;
+      console.log(articles);
       console.log(articles.size);
       
     // const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
@@ -110,7 +110,7 @@
 
 
 	</script>
-	<input type="button" value="press to show text" onclick="showString()" />
+	<input type="button" value="press to show text," onclick="showString()" />
 	<form>
 	    Collected text：<textarea name="description" id="textshow" cols="53" rows="600" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
 	</form>
