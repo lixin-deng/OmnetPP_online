@@ -96,9 +96,7 @@
 	    console.log(str); // Hello World
       articles = str.split('_NEW_SOURCE').splice(1, 46);
 		  //document.getElementById("textshow").value = articles;
-      console.log(articles);
-      console.log(articles.size);
-      
+      console.log(articles);      
     const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
         method: 'POST',
         type: "json",
@@ -114,13 +112,12 @@
               console.log(json);
               //jsonArray = JSON.stringify(json);
               len=eval(json).length;
+              console.log("json's length %f",len);
               for(var i=0;i<len;i++){
                 jsonArray[i]=json[i].summary;
+                console.log("json array");
                 console.log(jsonArray[i]);
               }
-
-              
-
 
             }).catch(err => {
               current_count=0;
