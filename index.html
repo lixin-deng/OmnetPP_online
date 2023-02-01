@@ -99,11 +99,11 @@
       console.log(articles);
       console.log(articles.size);
       
-    const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
+    const resposne = fetch( 'https://flask-summarize.herokuapp.com/model',{mode: 'no-cors'}, {
         method: 'POST',
         type: "json",
         body: JSON.stringify({"articles": articles}),
-        headers: { 'Content-Type': 'application/json',"Access-Control-Allow-Origin": "*" }
+        headers: { 'Content-Type': 'application/json'}
       });
 
       
