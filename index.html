@@ -115,8 +115,7 @@
               //jsonArray = JSON.stringify(json);
               len=eval(json).length;
               for(var i=0;i<len;i++){
-                jsonArray[i] =[]; //js中二维数组必须进行重复的声明，否则会undefind
-                jsonArray[i]['summary']=json[i].summary;
+                jsonArray[i]=json[i].summary;
               }
 
 
@@ -126,12 +125,12 @@
               return "ERROR"});
       
   
-      document.getElementById("summary1").value = jsonArray[0]['summary'];
-      document.getElementById("summary2").value = jsonArray[1]['summary'];
-      document.getElementById("summary3").value = jsonArray[2]['summary'];
-      document.getElementById("summary4").value = jsonArray[3]['summary'];
-      document.getElementById("summary5").value = jsonArray[4]['summary'];
-      document.getElementById("summary6").value = jsonArray[5]['summary'];
+      document.getElementById("summary1").value = jsonArray[0];
+      document.getElementById("summary2").value = jsonArray[1];
+      document.getElementById("summary3").value = jsonArray[2];
+      document.getElementById("summary4").value = jsonArray[3];
+      document.getElementById("summary5").value = jsonArray[4];
+      document.getElementById("summary6").value = jsonArray[5];
 
 	    Module._free(strPointer);
 	  }
