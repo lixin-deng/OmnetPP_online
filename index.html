@@ -117,8 +117,8 @@
                 // console.log("json[i]");
                 // console.log(json[i]);
                 jsonArray[i]=json[i].Summary;
-                jsonArray[i].replace("NEW_LINE",'');
-                
+                jsonArray[i].replace(/NEW_LINE/gi,'');
+
                 // console.log("json array");
                 // console.log(jsonArray[i]);
               }
