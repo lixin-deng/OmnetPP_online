@@ -119,6 +119,7 @@
                 jsonArray[i]=json[i].Summary;
                 // console.log("json array");
                 // console.log(jsonArray[i]);
+              }
                 document.getElementById("summary1").value = jsonArray[0];
                 document.getElementById("summary2").value = jsonArray[1];
                 document.getElementById("summary3").value = jsonArray[2];
@@ -126,7 +127,7 @@
                 document.getElementById("summary5").value = jsonArray[4];
                 document.getElementById("summary6").value = jsonArray[5];
 
-              }
+              
             }).catch(err => {
               current_count=0;
               console.log(err);
