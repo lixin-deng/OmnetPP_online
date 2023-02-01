@@ -95,7 +95,7 @@
 	    var str = new TextDecoder().decode(strBuffer);
 	    console.log(str); // Hello World
       articles = str.split('_NEW_SOURCE').splice(1, 46);
-		  document.getElementById("textshow").value = articles;
+		  //document.getElementById("textshow").value = articles;
       console.log(articles);
       console.log(articles.size);
       
@@ -116,14 +116,15 @@
             }).catch(err => {
               current_count=0;
               console.log(err);
-              
               return "ERROR"});
-
-
-
-
-
-
+      
+      var jsonStr = JSON.stringify(json);
+      document.getElementById("summary1").value = jsonStr[0];
+      document.getElementById("summary2").value = jsonStr[1];
+      document.getElementById("summary3").value = jsonStr[2];
+      document.getElementById("summary4").value = jsonStr[3];
+      document.getElementById("summary5").value = jsonStr[4];
+      document.getElementById("summary6").value = jsonStr[5];
 
 	    Module._free(strPointer);
 	  }
@@ -132,8 +133,13 @@
 	</script>
 	<input type="button" value="press to show text," onclick="showString()" />
 	<form>
-	    Collected text：<textarea name="description" id="textshow" cols="53" rows="600" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
-	</form>
+	    <textarea name="description" id="summary1" cols="53" rows="100" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
+      <textarea name="description" id="summary2" cols="53" rows="100" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
+	    <textarea name="description" id="summary3" cols="53" rows="100" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
+	    <textarea name="description" id="summary4" cols="53" rows="100" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
+	    <textarea name="description" id="summary5" cols="53" rows="100" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
+	    <textarea name="description" id="summary6" cols="53" rows="100" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
+    </form>
 	</div>
 
 
