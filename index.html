@@ -99,12 +99,30 @@
       console.log(articles);
       console.log(articles.size);
       
-    // const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
-    //     method: 'POST',
-    //     type: "json",
-    //     body: JSON.stringify({"articles": articles}),
-    //     headers: { 'Content-Type': 'application/json' }
-    //   });
+    const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
+        method: 'POST',
+        type: "json",
+        body: JSON.stringify({"articles": articles}),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      resposne.then(res => res.json())
+      .then(json => 
+            {
+              console.log(json);
+
+            }).catch(err => {
+              current_count=0;
+              console.log(err);
+              
+              return "ERROR"});
+
+
+
+
+
+
+
 	    Module._free(strPointer);
 	  }
 
