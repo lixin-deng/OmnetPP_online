@@ -96,7 +96,8 @@
 	    console.log(str); // Hello World
       articles = str.split('NEW_SOURCE');
 
-		  document.getElementById("textshow").value = str;
+		  document.getElementById("textshow").value = articles;
+      console.log(articles.size);
       
     // const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
     //     method: 'POST',
@@ -106,6 +107,7 @@
     //   });
 	    Module._free(strPointer);
 	  }
+
 
 	</script>
 	<input type="button" value="press to show text" onclick="showString()" />
