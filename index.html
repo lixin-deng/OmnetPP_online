@@ -96,7 +96,9 @@
 	    console.log(str); // Hello World
       articles = str.split('_NEW_SOURCE').splice(1, 46);
 		  //document.getElementById("textshow").value = articles;
-      //console.log(articles);      
+      console.log(articles);  
+      console.log(articles.length);
+    
     const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
         method: 'POST',
         type: "json",
