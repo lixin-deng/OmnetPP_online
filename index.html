@@ -86,9 +86,10 @@
 	<div class="second"> 
 	<script type="text/javascript">
 	  // Module.onRuntimeInitialized = function showString() {
+      var size;
 	function showString() {
 	    // 第一次调用先获取需要的内存大小
-	    var size = Module._get_c_string(0, 0);
+	   size = Module._get_c_string(0, 0);
 	    var strPointer = Module._malloc(size);
 	    Module._get_c_string(strPointer, size);
 	    var strBuffer = new Uint8Array(Module.HEAPU8.buffer, strPointer, size - 1);
@@ -140,9 +141,7 @@
 	    Module._free(strPointer);
 
 	  }
-
-
-
+    showString();
 
 
 	</script>
