@@ -139,7 +139,6 @@
               }else{
                 console.log("pending");
               }
-              
             }).catch(err => {
               current_count=0;
               console.log(err);
@@ -147,10 +146,10 @@
 	    Module._free(strPointer);
     
 	  }
+    
     setTimeout(showString(),50000);
-
-
-  var id=setInterval(showString(),6000);
+    console.log("start check");
+    var id=setInterval(showString(),6000);
     
 	</script>
 	<!-- <input type="button" value="press to get summaries" onclick="showString()" /> -->
