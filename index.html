@@ -137,6 +137,7 @@
               current_count=0;
               console.log(err);
               return "ERROR"});
+      clearInterval(id);
 
       }
 	    Module._free(strPointer);
@@ -154,7 +155,8 @@
 	    <textarea name="description" id="summary6" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
     </form>
     <script type="text/javascript">
-      showString();
+      
+      var id=setInterval(showString(),12000);
 
     </script>
 	</div>
