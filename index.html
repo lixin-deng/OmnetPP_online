@@ -146,9 +146,12 @@
     
 	  }
 
-    setTimeout(showString(),60000);
-
-    var id=setInterval(showString(),6000);
+    for(var index=0;index<100000;index++){
+          if(index == 100000)){
+      var id=setInterval(showString(),6000);
+    }
+  }
+    
 
 
 	</script>
