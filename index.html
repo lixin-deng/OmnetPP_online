@@ -94,21 +94,18 @@
 	    var strBuffer = new Uint8Array(Module.HEAPU8.buffer, strPointer, size - 1);
 	    var str = new TextDecoder().decode(strBuffer);
 	    console.log(str); // Hello World
-      // articles = str.split('_NEW_SOURCE').splice(1, 46);
-		  // //document.getElementById("textshow").value = articles;
-      // console.log(articles);  
-      // console.log(articles.length);
       articles = str.split('_NEW_SOURCE').splice(1,50);
       console.log(articles);  
       console.log(articles.length);
-    
-    const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
+      if(articles.length == 45){
+        console.log("sending articles...........");  
+
+        const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
         method: 'POST',
         type: "json",
         body: JSON.stringify({"articles": articles}),
         headers: { 'Content-Type': 'application/json'}
       });
-
       var len;
       var jsonArray = [];
       resposne.then(res => res.json())
@@ -140,15 +137,14 @@
               current_count=0;
               console.log(err);
               return "ERROR"});
-      
-  
-      
+
+      }
 	    Module._free(strPointer);
 	  }
 
 
 	</script>
-	<input type="button" value="press to get summaries" onclick="showString()" />
+	<!-- <input type="button" value="press to get summaries" onclick="showString()" /> -->
 	<form>
 	    <textarea name="description" id="summary1" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
       <textarea name="description" id="summary2" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
@@ -157,7 +153,12 @@
 	    <textarea name="description" id="summary5" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
 	    <textarea name="description" id="summary6" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
     </form>
+    <script type="text/javascript">
+      showString();
+
+    </script>
 	</div>
+
 
 
 </html>
