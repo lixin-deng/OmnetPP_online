@@ -85,6 +85,8 @@
 	
 	<div class="second"> 
 	<script type="text/javascript">
+    console.log("start js code part");      
+
 	  // Module.onRuntimeInitialized = function showString() {
 
 	function showString() {
@@ -148,7 +150,9 @@
 
     for(var index=0;index<100000;index++){
           if(index == 100000){
+            console.log("start checking");      
       var id=setInterval(showString(),6000);
+
     }
   }
     
