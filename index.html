@@ -113,6 +113,7 @@
               //jsonArray = JSON.stringify(json);
               len=eval(json).length;
               console.log("json's length %f",len);
+              if(len==45){
               for(var i=0;i<len;i++){
                 // console.log("json[i]");
                 // console.log(json[i]);
@@ -130,13 +131,16 @@
                 document.getElementById("summary6").value = "Cluster 6 Summary: \n" + jsonArray[5];
                 console.log(done);
 
-              
+              }
             }).catch(err => {
               current_count=0;
               console.log(err);
               return "ERROR"});
       
 	    Module._free(strPointer);
+
+
+
 	  }
 
 
