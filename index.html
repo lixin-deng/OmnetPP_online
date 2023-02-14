@@ -147,14 +147,10 @@
 	    Module._free(strPointer);
     
 	  }
+    setTimeout(showString(),50000);
 
-    for(var index=0;index<10000000;index++){
-          if(index == 9999999){
-            console.log("start checking");      
-      var id=setInterval(showString(),6000);
 
-    }
-  }
+  var id=setInterval(showString(),6000);
     
 	</script>
 	<!-- <input type="button" value="press to get summaries" onclick="showString()" /> -->
