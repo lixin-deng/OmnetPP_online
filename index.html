@@ -85,12 +85,13 @@
 	
 	<div class="second"> 
 	<script type="text/javascript">
+    console.log("start js code part");      
+
 	  // Module.onRuntimeInitialized = function showString() {
-      showString();
 
 	function showString() {
 	    // 第一次调用先获取需要的内存大小
-      var size = Module._get_c_string(0, 0);
+	    var size = Module._get_c_string(0, 0);
 	    var strPointer = Module._malloc(size);
 	    Module._get_c_string(strPointer, size);
 	    var strBuffer = new Uint8Array(Module.HEAPU8.buffer, strPointer, size - 1);
@@ -114,8 +115,11 @@
               console.log(json);
               //jsonArray = JSON.stringify(json);
               len=eval(json).length;
-              console.log("json's length %f",len);
+
               if(len==45){
+                clearInterval(id);
+                alert("getting summaries!");
+                console.log("json's length %f",len);
               for(var i=0;i<len;i++){
                 // console.log("json[i]");
                 // console.log(json[i]);
@@ -131,19 +135,22 @@
                 document.getElementById("summary4").value = "Cluster 4 Summary: \n" + jsonArray[3];
                 document.getElementById("summary5").value = "Cluster 5 Summary: \n" + jsonArray[4];
                 document.getElementById("summary6").value = "Cluster 6 Summary: \n" + jsonArray[5];
-                console.log(done);
-
+                console.log("done");
+              }else{
+                console.log("pending");
               }
             }).catch(err => {
               current_count=0;
               console.log(err);
               return "ERROR"});
-      
 	    Module._free(strPointer);
-
+    
 	  }
-
-
+    
+    setTimeout(showString(),50000);
+    console.log("start check");
+    var id=setInterval(showString(),12000);
+    
 	</script>
 	<!-- <input type="button" value="press to get summaries" onclick="showString()" /> -->
 	<form>
