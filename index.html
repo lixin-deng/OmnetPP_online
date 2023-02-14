@@ -86,7 +86,7 @@
 	<div class="second"> 
 	<script type="text/javascript">
 	  // Module.onRuntimeInitialized = function showString() {
-	var f = function () {
+	function showString() {
 	    // 第一次调用先获取需要的内存大小
 	    var size = Module._get_c_string(0, 0);
 	    var strPointer = Module._malloc(size);
@@ -141,8 +141,6 @@
 
 	  }
 
-
-    f.call();
 
 
 
