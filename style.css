@@ -1,11 +1,11 @@
-@font-face {
+/* @font-face {
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: normal;
     src: local('Ubuntu'), local('Ubuntu-Regular'),
       url('?__debugger__=yes&cmd=resource&f=ubuntu.ttf') format('truetype');
   }
-
+ */
 
 @import url('http://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
