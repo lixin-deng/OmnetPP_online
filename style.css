@@ -234,7 +234,7 @@ div.exc-divider {
 
 }
 
-:-webkit-scrollbar{
+.second .summary:-webkit-scrollbar{
     display: none;
 
 }
