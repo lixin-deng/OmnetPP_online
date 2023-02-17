@@ -234,15 +234,4 @@ div.exc-divider {
 
 }
 
-.second .summary::-webkit-scrollbar{
-    display: none;
-
-}
-/*
-::-webkit-scrollbar-track{
-        background-color:#bee1eb;
-        }
-    ::-webkit-scrollbar-thumb{
-        background-color:#00aff0;
-        }
-     */
+::-webkit-scrollbar{display:none;}
