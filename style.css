@@ -210,7 +210,7 @@ div.exc-divider {
 }
 
 .second .summary .content{
-    padding: 20px;
+    padding: 10px;
     text-align: left;
     /* transform: translateY(100px); */
     /* opacity: 0; */
@@ -226,6 +226,8 @@ div.exc-divider {
     font-size: 0.8em;
     color: #fff;
     font-weight: 300;
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 :-webkit-scrollbar{
