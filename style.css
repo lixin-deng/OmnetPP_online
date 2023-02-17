@@ -169,7 +169,7 @@ div.exc-divider {
     display: flex; /* flex容器（flex container） */
     justify-content: center;/* 定义项目在主轴上的对齐方式 */
     align-items: center;/* 定义项目在竖直方向上对齐方式 */
-    max-width: 1200px;
+    max-width: 2000px;
     flex-wrap: wrap;/* 定义项目是否换行以及如何换行  */
     z-index: 1;
     overflow-y: scroll;
