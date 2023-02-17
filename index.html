@@ -85,40 +85,40 @@
 	
 	<div class="second"> 
 
-    <div class="summary1">
+    <div class="summary">
       <div class="content">
         <h3>Summary 1</h3>
         <p id="summary1" >loading...</p>
       </div>
     </div>
-    <div class="summary2">
+    <div class="summary">
       <div class="content">
         <h3>Summary 2</h3>
         <p id="summary2" >loading...</p>
       </div>
     </div>
-    <div class="summary3">
+    <div class="summary">
       <div class="content">
         <h3>Summary 3</h3>
         <p id="summary3" >loading...</p>
       </div>
     </div>
-    <div class="summary4">
+    <div class="summary">
       <div class="content">
         <h3>Summary 4</h3>
         <p id="summary4" >loading...</p>
       </div>
     </div>
-    <div class="summary5">
+    <div class="summary">
       <div class="content">
         <h3>Summary 5</h3>
         <p id="summary5" >loading...</p>
       </div>
     </div>
-    <div class="summary6">
+    <div class="summary">
       <div class="content">
         <h3>Summary 6</h3>
-        <p id="summary6" ></p>
+        <p id="summary6" >loading...</p>
       </div>
     </div>
 
@@ -158,30 +158,24 @@
                 // console.log(json[i]);
                 jsonArray[i]=json[i].Summary;
                 jsonArray[i]=jsonArray[i].replace(/NEW_LINE/gi,'');
-
                 // console.log("json array");
                 // console.log(jsonArray[i]);
               }
-                document.getElementById("summary1").innerText = jsonArray[0];
-                document.getElementById("summary2").innerText = jsonArray[1];
-                document.getElementById("summary3").innerText = jsonArray[2];
-                document.getElementById("summary4").innerText = jsonArray[3];
-                document.getElementById("summary5").innerText = jsonArray[4];
-                document.getElementById("summary6").innerText = jsonArray[5];
-                console.log("done");
-
-              
+              document.getElementById("summary1").innerText = jsonArray[0];
+              document.getElementById("summary2").innerText = jsonArray[1];
+              document.getElementById("summary3").innerText = jsonArray[2];
+              document.getElementById("summary4").innerText = jsonArray[3];
+              document.getElementById("summary5").innerText = jsonArray[4];
+              document.getElementById("summary6").innerText = jsonArray[5];
+              console.log("done");
             }).catch(err => {
               current_count=0;
               console.log(err);
               return "ERROR"});
       clearInterval(id);
-
       }
 	    Module._free(strPointer);
 	  }
-
-
     var id=setInterval(showString,12000);
 
 
