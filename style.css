@@ -193,7 +193,8 @@ div.exc-divider {
     position: relative;
     width: 880px;
     height: 200px;
-    margin: 20px;
+    margin: 5px;
+    
     /* 设置阴影 */
     box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
