@@ -165,6 +165,7 @@ div.exc-divider {
 
 
 .first{
+    width: 70%;
     position: relative;
     display: flex; /* flex容器（flex container） */
     justify-content: center;/* 定义项目在主轴上的对齐方式 */
@@ -177,6 +178,7 @@ div.exc-divider {
 
 
 .second{
+    width: 30%;
     position: relative;
     display: flex; /* flex容器（flex container） */
     justify-content: center;/* 定义项目在主轴上的对齐方式 */
