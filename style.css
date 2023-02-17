@@ -162,3 +162,56 @@ div.exc-divider {
     display: none;
 }
 
+
+.second{
+    position: relative;
+    display: flex; /* flex容器（flex container） */
+    justify-content: center;/* 定义项目在主轴上的对齐方式 */
+    align-items: center;/* 定义项目在竖直方向上对齐方式 */
+    max-width: 1200px;
+    flex-wrap: wrap;/* 定义项目是否换行以及如何换行  */
+    z-index: 1;
+}
+
+.second .summary{
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    /* 设置阴影 */
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    /* 设置card的背景色 */
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+
+}
+
+.second .summary .content{
+    padding: 20px;
+    text-align: center;
+    /* transform: translateY(100px); */
+    /* opacity: 0; */
+    /* transition: 0.5s; */
+}
+/* .container .card:hover .content{
+    transform: translateY(0px);
+    opacity: 1;
+} */
+
+.second .summary .content h3{
+    font-size: 1.8em;
+    color: #fff;
+    z-index: 1;
+}
+.second .summary .content p{
+    font-size: 1em;
+    color: #fff;
+    font-weight: 300;
+}
