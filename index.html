@@ -1,39 +1,62 @@
 <!doctype html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!--Set visual viewport size for mobile devices to the device size,
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!--Set visual viewport size for mobile devices to the device size,
         witch results in a scale of 1 and a 1:1 mapping between CSS pixels
         and Qt device independent pixels. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, user-scalable=0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, user-scalable=0" />
 
-    <title>project_qt</title>
-    <style>
-      /* Make the html body cover the entire (visual) viewport with no scroll bars. */
-      html, body { padding: 0; margin: 0; overflow:hidden; height: 100vh }
-      /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
-      canvas { border: 0px none; background-color: white; height:100%; width:100%;  }
-      /* The contenteditable property is set to true for the canvas in order to support
+  <title>project_qt</title>
+  <style>
+    /* Make the html body cover the entire (visual) viewport with no scroll bars. */
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      height: 100vh
+    }
+
+    /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+    canvas {
+      border: 0px none;
+      background-color: white;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* The contenteditable property is set to true for the canvas in order to support
          clipboard events. Hide the resulting focus frame and set the cursor back to
          the default cursor. */
-      canvas { outline: 0px solid transparent; caret-color: transparent; cursor:default }
-	.first {
-	            width: 80%;
-	            float:left;
-	            height: 100%;
-/* 	            border: 1px solid #3B6273;
- */	        }
-	        .second {
-	            width: 20%;
-	            float:left;
-	            height: 100%;
-/* 	            border: 1px solid #3B6273;
- */	        }
-	</style>
-  </head>
-  <body onload="init()">
-	<div class="first"> 
+    canvas {
+      outline: 0px solid transparent;
+      caret-color: transparent;
+      cursor: default
+    }
+
+    .first {
+      width: 80%;
+      float: left;
+      height: 100%;
+      /* 	            border: 1px solid #3B6273;
+ */
+    }
+
+    .second {
+      width: 20%;
+      float: left;
+      height: 100%;
+      /* 	            border: 1px solid #3B6273;
+ */
+    }
+  </style>
+</head>
+
+<body onload="init()">
+  <div class="first">
     <figure style="overflow:visible;" id="qtspinner">
       <center style="margin-top:1.5em; line-height:150%">
         <img src="qtlogo.svg" width="320" height="200" style="display:block"></img>
@@ -45,147 +68,148 @@
     <canvas id="qtcanvas" oncontextmenu="event.preventDefault()" contenteditable="true"></canvas>
 
     <script type='text/javascript'>
-        function init() {
-          var spinner = document.querySelector('#qtspinner');
-          var canvas = document.querySelector('#qtcanvas');
-          var status = document.querySelector('#qtstatus')
+      function init() {
+        var spinner = document.querySelector('#qtspinner');
+        var canvas = document.querySelector('#qtcanvas');
+        var status = document.querySelector('#qtstatus')
 
-          var qtLoader = QtLoader({
-              canvasElements : [canvas],
-              showLoader: function(loaderStatus) {
-                  spinner.style.display = 'block';
-                  canvas.style.display = 'none';
-                  status.innerHTML = loaderStatus + "...";
-              },
-              showError: function(errorText) {
-                  status.innerHTML = errorText;
-                  spinner.style.display = 'block';
-                  canvas.style.display = 'none';
-              },
-              showExit: function() {
-                  status.innerHTML = "Application exit";
-                  if (qtLoader.exitCode !== undefined)
-                      status.innerHTML += " with code " + qtLoader.exitCode;
-                  if (qtLoader.exitText !== undefined)
-                      status.innerHTML += " (" + qtLoader.exitText + ")";
-                  spinner.style.display = 'block';
-                  canvas.style.display = 'none';
-              },
-              showCanvas: function() {
-                  spinner.style.display = 'none';
-                  canvas.style.display = 'block';
-              },
-          });
-          qtLoader.loadEmscriptenModule("project_qt");
+        var qtLoader = QtLoader({
+          canvasElements: [canvas],
+          showLoader: function (loaderStatus) {
+            spinner.style.display = 'block';
+            canvas.style.display = 'none';
+            status.innerHTML = loaderStatus + "...";
+          },
+          showError: function (errorText) {
+            status.innerHTML = errorText;
+            spinner.style.display = 'block';
+            canvas.style.display = 'none';
+          },
+          showExit: function () {
+            status.innerHTML = "Application exit";
+            if (qtLoader.exitCode !== undefined)
+              status.innerHTML += " with code " + qtLoader.exitCode;
+            if (qtLoader.exitText !== undefined)
+              status.innerHTML += " (" + qtLoader.exitText + ")";
+            spinner.style.display = 'block';
+            canvas.style.display = 'none';
+          },
+          showCanvas: function () {
+            spinner.style.display = 'none';
+            canvas.style.display = 'block';
+          },
+        });
+        qtLoader.loadEmscriptenModule("project_qt");
       }
     </script>
     <script type="text/javascript" src="qtloader.js"></script>
-	</div>
-	
-	<div class="second"> 
+  </div>
+
+  <div class="second">
 
     <div class="summary">
       <div class="content">
         <h3 id="title1">Summary 1</h3>
-        <p id="summary1" >loading...</p>
+        <p id="summary1">loading...</p>
       </div>
     </div>
     <div class="summary">
       <div class="content">
         <h3 id="title2">Summary 2</h3>
-        <p id="summary2" >loading...</p>
+        <p id="summary2">loading...</p>
       </div>
     </div>
     <div class="summary">
       <div class="content">
         <h3 id="title3">Summary 3</h3>
-        <p id="summary3" >loading...</p>
+        <p id="summary3">loading...</p>
       </div>
     </div>
     <div class="summary">
       <div class="content">
         <h3 id="title4">Summary 4</h3>
-        <p id="summary4" >loading...</p>
+        <p id="summary4">loading...</p>
       </div>
     </div>
     <div class="summary">
       <div class="content">
         <h3 id="title5">Summary 5</h3>
-        <p id="summary5" >loading...</p>
+        <p id="summary5">loading...</p>
       </div>
     </div>
     <div class="summary">
       <div class="content">
         <h3 id="title6">Summary 6</h3>
-        <p id="summary6" >loading...</p>
+        <p id="summary6">loading...</p>
       </div>
     </div>
 
-	<script type="text/javascript">
-	  // Module.onRuntimeInitialized = function showString() {
-	function showString() {
-	    // 第一次调用先获取需要的内存大小
-	    var size = Module._get_c_string(0, 0);
-	    var strPointer = Module._malloc(size);
-	    Module._get_c_string(strPointer, size);
-	    var strBuffer = new Uint8Array(Module.HEAPU8.buffer, strPointer, size - 1);
-	    var str = new TextDecoder().decode(strBuffer);
-	    console.log(str); // Hello World
-      articles = str.split('_NEW_SOURCE').splice(1,50);
-      console.log(articles);  
-      console.log(articles.length);
-      if(articles.length == 45){
-        console.log("sending articles...........");  
+    <script type="text/javascript">
+      // Module.onRuntimeInitialized = function showString() {
+      function showString() {
+        // 第一次调用先获取需要的内存大小
+        var size = Module._get_c_string(0, 0);
+        var strPointer = Module._malloc(size);
+        Module._get_c_string(strPointer, size);
+        var strBuffer = new Uint8Array(Module.HEAPU8.buffer, strPointer, size - 1);
+        var str = new TextDecoder().decode(strBuffer);
+        console.log(str); // Hello World
+        articles = str.split('_NEW_SOURCE').splice(1, 50);
+        console.log(articles);
+        console.log(articles.length);
+        if (articles.length == 45) {
+          console.log("sending articles...........");
+          window.parent.postMessage(articles, '*');
 
-        const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
-        method: 'POST',
-        type: "json",
-        body: JSON.stringify({"articles": articles}),
-        headers: { 'Content-Type': 'application/json'}
-      });
-      var len;
-      var jsonArray = [];
-      resposne.then(res => res.json())
-      .then(json => 
-            {
-              console.log(json);
-              //jsonArray = JSON.stringify(json);
-              len=eval(json).length;
-              console.log("json's length %f",len);
-              for(var i=0;i<len;i++){
-                // console.log("json[i]");
-                // console.log(json[i]);
-                jsonArray[i]=json[i].Summary;
-                jsonArray[i]=jsonArray[i].replace(/NEW_LINE/gi,'');
-                // console.log("json array");
-                // console.log(jsonArray[i]);
-              }
-              document.getElementById("summary1").innerText = jsonArray[0];
-              document.getElementById("summary2").innerText = jsonArray[1];
-              document.getElementById("summary3").innerText = jsonArray[2];
-              document.getElementById("summary4").innerText = jsonArray[3];
-              document.getElementById("summary5").innerText = jsonArray[4];
-              document.getElementById("summary6").innerText = jsonArray[5];
-              document.getElementById("title1").innerText = "Summary 1:";
-              document.getElementById("title2").innerText = "Summary 2:";
-              document.getElementById("title3").innerText = "Summary 3:";
-              document.getElementById("title4").innerText = "Summary 4:";
-              document.getElementById("title5").innerText = "Summary 5:";
-              document.getElementById("title6").innerText = "Summary 6:";
-              console.log("done");
-            }).catch(err => {
-              current_count=0;
-              console.log(err);
-              return "ERROR"});
-      clearInterval(id);
+          // const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
+          // method: 'POST',
+          // type: "json",
+          // body: JSON.stringify({"articles": articles}),
+          // headers: { 'Content-Type': 'application/json'}
+          // });
+          // var len;
+          // var jsonArray = [];
+          // resposne.then(res => res.json())
+          // .then(json => 
+          //       {
+          //         console.log(json);
+          //         //jsonArray = JSON.stringify(json);
+          //         len=eval(json).length;
+          //         console.log("json's length %f",len);
+          //         for(var i=0;i<len;i++){
+          //           // console.log("json[i]");
+          //           // console.log(json[i]);
+          //           jsonArray[i]=json[i].Summary;
+          //           jsonArray[i]=jsonArray[i].replace(/NEW_LINE/gi,'');
+          //           // console.log("json array");
+          //           // console.log(jsonArray[i]);
+          //         }
+          //         document.getElementById("summary1").innerText = jsonArray[0];
+          //         document.getElementById("summary2").innerText = jsonArray[1];
+          //         document.getElementById("summary3").innerText = jsonArray[2];
+          //         document.getElementById("summary4").innerText = jsonArray[3];
+          //         document.getElementById("summary5").innerText = jsonArray[4];
+          //         document.getElementById("summary6").innerText = jsonArray[5];
+          //         document.getElementById("title1").innerText = "Summary 1:";
+          //         document.getElementById("title2").innerText = "Summary 2:";
+          //         document.getElementById("title3").innerText = "Summary 3:";
+          //         document.getElementById("title4").innerText = "Summary 4:";
+          //         document.getElementById("title5").innerText = "Summary 5:";
+          //         document.getElementById("title6").innerText = "Summary 6:";
+          //         console.log("done");
+          //       }).catch(err => {
+          //         current_count=0;
+          //         console.log(err);
+          //         return "ERROR"});
+          clearInterval(id);
+        }
+        Module._free(strPointer);
       }
-	    Module._free(strPointer);
-	  }
-    var id=setInterval(showString,12000);
+      var id = setInterval(showString, 12000);
 
 
-	</script>
-	<!-- <form>
+    </script>
+    <!-- <form>
 	    <textarea name="description" id="summary1" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
       <textarea name="description" id="summary2" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
 	    <textarea name="description" id="summary3" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
@@ -193,7 +217,7 @@
 	    <textarea name="description" id="summary5" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
 	    <textarea name="description" id="summary6" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
     </form> -->
-	</div>
+  </div>
 
 
 
