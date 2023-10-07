@@ -106,47 +106,10 @@
   </div>
 
   <div class="second">
-
-    <!-- <div class="summary">
-      <div class="content">
-        <h3 id="title1">Summary 1</h3>
-        <p id="summary1">loading...</p>
-      </div>
-    </div>
-    <div class="summary">
-      <div class="content">
-        <h3 id="title2">Summary 2</h3>
-        <p id="summary2">loading...</p>
-      </div>
-    </div>
-    <div class="summary">
-      <div class="content">
-        <h3 id="title3">Summary 3</h3>
-        <p id="summary3">loading...</p>
-      </div>
-    </div>
-    <div class="summary">
-      <div class="content">
-        <h3 id="title4">Summary 4</h3>
-        <p id="summary4">loading...</p>
-      </div>
-    </div>
-    <div class="summary">
-      <div class="content">
-        <h3 id="title5">Summary 5</h3>
-        <p id="summary5">loading...</p>
-      </div>
-    </div> -->
-    <!-- <div class="summary">
-      <div class="content">
-        <h3 id="title6">Summary 6</h3>
-        <p id="summary6">loading...</p>
-      </div>
-    </div> -->
-
     <script type="text/javascript">
       // Module.onRuntimeInitialized = function showString() {
       function showString() {
+        let canSend = true;
         // 第一次调用先获取需要的内存大小
         var size = Module._get_c_string(0, 0);
         var strPointer = Module._malloc(size);
@@ -157,50 +120,10 @@
         articles = str.split('_NEW_SOURCE').splice(1, 50);
         console.log(articles);
         console.log(articles.length);
-        if (articles.length == 45) {
+        if (articles.length == 45 && canSend) {
+          canSend = false;
           console.log("sending articles...........");
           window.parent.postMessage(articles, '*');
-
-          // const resposne = fetch( 'https://flask-summarize.herokuapp.com/model', {
-          // method: 'POST',
-          // type: "json",
-          // body: JSON.stringify({"articles": articles}),
-          // headers: { 'Content-Type': 'application/json'}
-          // });
-          // var len;
-          // var jsonArray = [];
-          // resposne.then(res => res.json())
-          // .then(json => 
-          //       {
-          //         console.log(json);
-          //         //jsonArray = JSON.stringify(json);
-          //         len=eval(json).length;
-          //         console.log("json's length %f",len);
-          //         for(var i=0;i<len;i++){
-          //           // console.log("json[i]");
-          //           // console.log(json[i]);
-          //           jsonArray[i]=json[i].Summary;
-          //           jsonArray[i]=jsonArray[i].replace(/NEW_LINE/gi,'');
-          //           // console.log("json array");
-          //           // console.log(jsonArray[i]);
-          //         }
-          //         document.getElementById("summary1").innerText = jsonArray[0];
-          //         document.getElementById("summary2").innerText = jsonArray[1];
-          //         document.getElementById("summary3").innerText = jsonArray[2];
-          //         document.getElementById("summary4").innerText = jsonArray[3];
-          //         document.getElementById("summary5").innerText = jsonArray[4];
-          //         document.getElementById("summary6").innerText = jsonArray[5];
-          //         document.getElementById("title1").innerText = "Summary 1:";
-          //         document.getElementById("title2").innerText = "Summary 2:";
-          //         document.getElementById("title3").innerText = "Summary 3:";
-          //         document.getElementById("title4").innerText = "Summary 4:";
-          //         document.getElementById("title5").innerText = "Summary 5:";
-          //         document.getElementById("title6").innerText = "Summary 6:";
-          //         console.log("done");
-          //       }).catch(err => {
-          //         current_count=0;
-          //         console.log(err);
-          //         return "ERROR"});
           clearInterval(id);
         }
         Module._free(strPointer);
@@ -209,14 +132,6 @@
 
 
     </script>
-    <!-- <form>
-	    <textarea name="description" id="summary1" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
-      <textarea name="description" id="summary2" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
-	    <textarea name="description" id="summary3" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
-	    <textarea name="description" id="summary4" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
-	    <textarea name="description" id="summary5" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
-	    <textarea name="description" id="summary6" cols="53" rows="10" placeholder="show text" style="font-size:10px;font-family: 'Times New Roman', Times, serif;"> </textarea>
-    </form> -->
   </div>
 
 
