@@ -124,11 +124,11 @@
           canSend = false;
           console.log("sending articles...........");
           window.parent.postMessage(articles, '*');
-          clearInterval(id);
+          clearTimeout(id);
         }
         Module._free(strPointer);
       }
-      var id = setInterval(showString, 12000);
+      var id = setTimeout(showString, 12000);
 
 
     </script>
