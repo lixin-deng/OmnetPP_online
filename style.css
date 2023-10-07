@@ -410,7 +410,7 @@ div.exc-divider {
 
 
 .first {
-    width: 70%;
+    width: 100%;
     position: relative;
     display: flex;
     /* flex容器（flex container） */
