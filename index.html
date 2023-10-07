@@ -107,9 +107,9 @@
 
   <div class="second">
     <script type="text/javascript">
+      let canSend = true;
       // Module.onRuntimeInitialized = function showString() {
       function showString() {
-        let canSend = true;
         // 第一次调用先获取需要的内存大小
         var size = Module._get_c_string(0, 0);
         var strPointer = Module._malloc(size);
@@ -124,11 +124,11 @@
           canSend = false;
           console.log("sending articles...........");
           window.parent.postMessage(articles, '*');
-          clearTimeout(id);
+          clearInterval(id);
         }
         Module._free(strPointer);
       }
-      var id = setTimeout(showString, 12000);
+      var id = setInterval(showString, 12000);
 
 
     </script>
